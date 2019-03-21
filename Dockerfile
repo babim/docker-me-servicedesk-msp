@@ -1,4 +1,4 @@
-FROM babim/centosbase:7-x86
+FROM babim/oraclelinuxbase:7
 ENV SOFT	ServiceDeskPlus-MSP
 ENV EDITTION	standard
 ENV SOFT_HOME	/opt/ManageEngine/${SOFT}
