@@ -1,6 +1,6 @@
-FROM babim/oraclelinuxbase:7
+FROM babim/centosbase:7-x86
 ENV SOFT	ServiceDeskPlus-MSP
-ENV EDITTION	enterprise
+ENV EDITTION	standard
 ENV SOFT_HOME	/opt/ManageEngine/${SOFT}
 
 # install depend
