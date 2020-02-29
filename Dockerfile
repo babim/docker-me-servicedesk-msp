@@ -1,7 +1,8 @@
 FROM babim/centosbase:7-x86
 ENV SOFT	ServiceDeskPlus-MSP
 ENV EDITTION	pro
-ENV SOFT_HOME	/opt/ManageEngine/${SOFT}
+ENV SOFT_OPT	/opt/ManageEngine
+ENV SOFT_HOME	${SOFT_OPT}/${SOFT}${SOFTSUB}
 ENV MACHINE_TYPE x86
 
 # download option
@@ -15,8 +16,8 @@ RUN curl -s https://raw.githubusercontent.com/babim/docker-tag-options/master/z%
 # Set the default working directory as the installation directory.
 #WORKDIR ${SOFT_HOME}
 
-VOLUME ["${SOFT_HOME}"]
+VOLUME ["${SOFT_OPT}"]
 # Expose default HTTP connector port.
 EXPOSE 8080
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/docker-entrypoint.sh"]
