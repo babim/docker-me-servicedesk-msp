@@ -1,7 +1,8 @@
-FROM babim/oraclelinuxbase:7
+FROM babim/centosbase:7
 ENV SOFT	ServiceDeskPlus-MSP
 ENV EDITTION	enterprise
-ENV SOFT_HOME	/opt/ManageEngine/${SOFT}
+ENV SOFT_OPT	/opt/ManageEngine
+ENV SOFT_HOME	${SOFT_OPT}/${SOFT}${SOFTSUB}
 
 # download option
 RUN yum install curl -y && \
@@ -14,8 +15,8 @@ RUN curl -s https://raw.githubusercontent.com/babim/docker-tag-options/master/z%
 # Set the default working directory as the installation directory.
 #WORKDIR ${SOFT_HOME}
 
-VOLUME ["${SOFT_HOME}"]
+VOLUME ["${SOFT_OPT}"]
 # Expose default HTTP connector port.
 EXPOSE 8080
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/docker-entrypoint.sh"]
